@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x58D0EE648A48B3BB (faure@kde.org)
 #
 Name     : kactivities
-Version  : 5.49.0
-Release  : 2
-URL      : https://download.kde.org/stable/frameworks/5.49/kactivities-5.49.0.tar.xz
-Source0  : https://download.kde.org/stable/frameworks/5.49/kactivities-5.49.0.tar.xz
-Source99 : https://download.kde.org/stable/frameworks/5.49/kactivities-5.49.0.tar.xz.sig
+Version  : 5.50.0
+Release  : 3
+URL      : https://download.kde.org/stable/frameworks/5.50/kactivities-5.50.0.tar.xz
+Source0  : https://download.kde.org/stable/frameworks/5.50/kactivities-5.50.0.tar.xz
+Source99 : https://download.kde.org/stable/frameworks/5.50/kactivities-5.50.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GPL-2.0 LGPL-2.0 LGPL-2.1
@@ -19,7 +19,6 @@ Requires: kactivities-license
 BuildRequires : boost-dev
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
-BuildRequires : kwindowsystem-dev
 
 %description
 In order to properly display the files, use the GNU man command.
@@ -62,14 +61,14 @@ license components for the kactivities package.
 
 
 %prep
-%setup -q -n kactivities-5.49.0
+%setup -q -n kactivities-5.50.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1534093682
+export SOURCE_DATE_EPOCH=1536426335
 mkdir clr-build
 pushd clr-build
 %cmake ..
@@ -77,7 +76,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1534093682
+export SOURCE_DATE_EPOCH=1536426335
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/doc/kactivities
 cp COPYING %{buildroot}/usr/share/doc/kactivities/COPYING
@@ -121,7 +120,7 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKF5Activities.so.5
-/usr/lib64/libKF5Activities.so.5.49.0
+/usr/lib64/libKF5Activities.so.5.50.0
 /usr/lib64/qt5/qml/org/kde/activities/libkactivitiesextensionplugin.so
 /usr/lib64/qt5/qml/org/kde/activities/qmldir
 
