@@ -6,7 +6,7 @@
 #
 Name     : kactivities
 Version  : 5.50.0
-Release  : 3
+Release  : 4
 URL      : https://download.kde.org/stable/frameworks/5.50/kactivities-5.50.0.tar.xz
 Source0  : https://download.kde.org/stable/frameworks/5.50/kactivities-5.50.0.tar.xz
 Source99 : https://download.kde.org/stable/frameworks/5.50/kactivities-5.50.0.tar.xz.sig
@@ -19,6 +19,7 @@ Requires: kactivities-license
 BuildRequires : boost-dev
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
+BuildRequires : kwindowsystem-dev
 
 %description
 In order to properly display the files, use the GNU man command.
@@ -68,7 +69,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1536426335
+export SOURCE_DATE_EPOCH=1536429750
 mkdir clr-build
 pushd clr-build
 %cmake ..
@@ -76,7 +77,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1536426335
+export SOURCE_DATE_EPOCH=1536429750
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/doc/kactivities
 cp COPYING %{buildroot}/usr/share/doc/kactivities/COPYING
