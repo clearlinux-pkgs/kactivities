@@ -5,21 +5,19 @@
 # Source0 file verified with key 0x58D0EE648A48B3BB (faure@kde.org)
 #
 Name     : kactivities
-Version  : 5.50.0
-Release  : 4
-URL      : https://download.kde.org/stable/frameworks/5.50/kactivities-5.50.0.tar.xz
-Source0  : https://download.kde.org/stable/frameworks/5.50/kactivities-5.50.0.tar.xz
-Source99 : https://download.kde.org/stable/frameworks/5.50/kactivities-5.50.0.tar.xz.sig
+Version  : 5.51.0
+Release  : 5
+URL      : https://download.kde.org/stable/frameworks/5.51/kactivities-5.51.0.tar.xz
+Source0  : https://download.kde.org/stable/frameworks/5.51/kactivities-5.51.0.tar.xz
+Source99 : https://download.kde.org/stable/frameworks/5.51/kactivities-5.51.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GPL-2.0 LGPL-2.0 LGPL-2.1
-Requires: kactivities-bin
-Requires: kactivities-lib
-Requires: kactivities-license
-BuildRequires : boost-dev
+Requires: kactivities-bin = %{version}-%{release}
+Requires: kactivities-lib = %{version}-%{release}
+Requires: kactivities-license = %{version}-%{release}
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
-BuildRequires : kwindowsystem-dev
 
 %description
 In order to properly display the files, use the GNU man command.
@@ -27,7 +25,7 @@ In order to properly display the files, use the GNU man command.
 %package bin
 Summary: bin components for the kactivities package.
 Group: Binaries
-Requires: kactivities-license
+Requires: kactivities-license = %{version}-%{release}
 
 %description bin
 bin components for the kactivities package.
@@ -36,9 +34,9 @@ bin components for the kactivities package.
 %package dev
 Summary: dev components for the kactivities package.
 Group: Development
-Requires: kactivities-lib
-Requires: kactivities-bin
-Provides: kactivities-devel
+Requires: kactivities-lib = %{version}-%{release}
+Requires: kactivities-bin = %{version}-%{release}
+Provides: kactivities-devel = %{version}-%{release}
 
 %description dev
 dev components for the kactivities package.
@@ -47,7 +45,7 @@ dev components for the kactivities package.
 %package lib
 Summary: lib components for the kactivities package.
 Group: Libraries
-Requires: kactivities-license
+Requires: kactivities-license = %{version}-%{release}
 
 %description lib
 lib components for the kactivities package.
@@ -62,27 +60,27 @@ license components for the kactivities package.
 
 
 %prep
-%setup -q -n kactivities-5.50.0
+%setup -q -n kactivities-5.51.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1536429750
-mkdir clr-build
+export SOURCE_DATE_EPOCH=1539616107
+mkdir -p clr-build
 pushd clr-build
 %cmake ..
-make  %{?_smp_mflags}
+make  %{?_smp_mflags} VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1536429750
+export SOURCE_DATE_EPOCH=1539616107
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/doc/kactivities
-cp COPYING %{buildroot}/usr/share/doc/kactivities/COPYING
-cp COPYING.LGPL-2 %{buildroot}/usr/share/doc/kactivities/COPYING.LGPL-2
-cp COPYING.LIB %{buildroot}/usr/share/doc/kactivities/COPYING.LIB
+mkdir -p %{buildroot}/usr/share/package-licenses/kactivities
+cp COPYING %{buildroot}/usr/share/package-licenses/kactivities/COPYING
+cp COPYING.LGPL-2 %{buildroot}/usr/share/package-licenses/kactivities/COPYING.LGPL-2
+cp COPYING.LIB %{buildroot}/usr/share/package-licenses/kactivities/COPYING.LIB
 pushd clr-build
 %make_install
 popd
@@ -121,12 +119,12 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKF5Activities.so.5
-/usr/lib64/libKF5Activities.so.5.50.0
+/usr/lib64/libKF5Activities.so.5.51.0
 /usr/lib64/qt5/qml/org/kde/activities/libkactivitiesextensionplugin.so
 /usr/lib64/qt5/qml/org/kde/activities/qmldir
 
 %files license
-%defattr(-,root,root,-)
-/usr/share/doc/kactivities/COPYING
-/usr/share/doc/kactivities/COPYING.LGPL-2
-/usr/share/doc/kactivities/COPYING.LIB
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/kactivities/COPYING
+/usr/share/package-licenses/kactivities/COPYING.LGPL-2
+/usr/share/package-licenses/kactivities/COPYING.LIB
