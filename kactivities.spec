@@ -6,7 +6,7 @@
 #
 Name     : kactivities
 Version  : 5.52.0
-Release  : 7
+Release  : 8
 URL      : https://download.kde.org/stable/frameworks/5.52/kactivities-5.52.0.tar.xz
 Source0  : https://download.kde.org/stable/frameworks/5.52/kactivities-5.52.0.tar.xz
 Source99 : https://download.kde.org/stable/frameworks/5.52/kactivities-5.52.0.tar.xz.sig
@@ -22,14 +22,6 @@ BuildRequires : buildreq-kde
 
 %description
 In order to properly display the files, use the GNU man command.
-
-%package abi
-Summary: abi components for the kactivities package.
-Group: Default
-
-%description abi
-abi components for the kactivities package.
-
 
 %package bin
 Summary: bin components for the kactivities package.
@@ -87,7 +79,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1541868502
+export SOURCE_DATE_EPOCH=1542738185
 mkdir -p clr-build
 pushd clr-build
 %cmake ..
@@ -95,7 +87,7 @@ make  %{?_smp_mflags} VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1541868502
+export SOURCE_DATE_EPOCH=1542738185
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kactivities
 cp COPYING %{buildroot}/usr/share/package-licenses/kactivities/COPYING
@@ -107,10 +99,6 @@ popd
 
 %files
 %defattr(-,root,root,-)
-
-%files abi
-%defattr(-,root,root,-)
-/usr/share/abi/libKF5Activities.so.5.52.0.abi
 
 %files bin
 %defattr(-,root,root,-)
