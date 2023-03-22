@@ -1,5 +1,5 @@
 PKG_NAME := kactivities
-URL = https://download.kde.org/stable/frameworks/5.103/kactivities-5.103.0.tar.xz
+URL = https://download.kde.org/stable/frameworks/5.104/kactivities-5.104.0.tar.xz
 ARCHIVES = 
 
 include ../common/Makefile.common
