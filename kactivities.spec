@@ -7,7 +7,7 @@
 #
 Name     : kactivities
 Version  : 5.106.0
-Release  : 64
+Release  : 65
 URL      : https://download.kde.org/stable/frameworks/5.106/kactivities-5.106.0.tar.xz
 Source0  : https://download.kde.org/stable/frameworks/5.106/kactivities-5.106.0.tar.xz
 Source1  : https://download.kde.org/stable/frameworks/5.106/kactivities-5.106.0.tar.xz.sig
@@ -86,7 +86,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1684816192
+export SOURCE_DATE_EPOCH=1685559399
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -119,7 +119,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1684816192
+export SOURCE_DATE_EPOCH=1685559399
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kactivities
 cp %{_builddir}/kactivities-%{version}/LICENSES/CC0-1.0.txt %{buildroot}/usr/share/package-licenses/kactivities/82da472f6d00dc5f0a651f33ebb320aa9c7b08d0 || :
@@ -153,7 +153,6 @@ popd
 
 %files dev
 %defattr(-,root,root,-)
-/V3/usr/lib64/libKF5Activities.so
 /usr/include/KF5/KActivities/KActivities/ActivitiesModel
 /usr/include/KF5/KActivities/KActivities/Consumer
 /usr/include/KF5/KActivities/KActivities/Controller
@@ -178,7 +177,6 @@ popd
 
 %files lib
 %defattr(-,root,root,-)
-/V3/usr/lib64/libKF5Activities.so.5
 /V3/usr/lib64/libKF5Activities.so.5.106.0
 /V3/usr/lib64/qt5/qml/org/kde/activities/libkactivitiesextensionplugin.so
 /usr/lib64/libKF5Activities.so.5
